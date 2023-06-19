@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import CardContext from "../store/context";
-
 import styles from "./Header.module.css";
 
 const Header = () => {
