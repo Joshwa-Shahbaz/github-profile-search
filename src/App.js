@@ -4,7 +4,6 @@ import RootPage from "./components/Root";
 import Repo from "./components/Repo";
 import { CardProvider } from "./store/context";
 import List from "./components/List";
-import Followers from "./components/Followers";
 
 const router = createBrowserRouter([
   {

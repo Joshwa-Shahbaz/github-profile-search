@@ -24,7 +24,7 @@ const Repo = () => {
     };
 
     fetchData();
-  }, []);
+  });
 
   return (
     <>

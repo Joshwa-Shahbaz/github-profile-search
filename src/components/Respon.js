@@ -21,7 +21,7 @@ const Respon = () => {
     };
 
     fetchData();
-  }, []);
+  });
   return (
     <>
       <h1>Repositories</h1>

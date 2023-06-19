@@ -22,7 +22,7 @@ const Followers = () => {
     };
 
     fetchData();
-  }, []);
+  });
   return (
     <>
       <h1>Followers</h1>
