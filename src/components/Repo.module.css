@@ -1,0 +1,35 @@
+.main {
+  display: flex;
+  margin: 20px;
+}
+.flex {
+  display: flex;
+  gap: 20px;
+}
+.img {
+  width: 340px;
+  border-radius: 5px;
+}
+.bio {
+  font-size: 23px;
+  font-weight: 200px;
+}
+.avg {
+  font-size: 30px;
+}
+.tag {
+  font-size: 23px;
+}
+.data {
+  margin-left: 20px;
+}
+.company {
+  font-size: 22px;
+}
+.check {
+  display: flex;
+}
+.gap {
+  margin-left: 30px;
+  margin-right: 40px;
+}

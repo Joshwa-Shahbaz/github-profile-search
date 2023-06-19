@@ -1,0 +1,77 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
+
+const Header = (props) => {
+  const [githubData, setGithubData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://api.github.com/search/users?per_page=42&page=1&q=${props.user}`
+        );
+        setGithubData(response.data.items);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchData();
+  }, [props.user]);
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    props.onUser("");
+  };
+
+  return (
+    <>
+      <div className={styles.main}>
+        <div>
+          <i className={`fa-brands fa-github  git-logo ${styles.gitlogo}`}></i>
+          <h1 className={styles.logo}>GitHub User Search</h1>
+          <p className={styles.headerpara}>
+            Browse users and their profiles via
+            <a href="https://docs.github.com/en/rest?apiVersion=2022-11-28">
+              the GitHub API
+            </a>
+          </p>
+        </div>
+        <div>
+          <form onSubmit={submitHandler}>
+            <input
+              className={styles.search}
+              type="text"
+              placeholder="Search for a user, e.g., joshwa-shahbaz"
+              value={props.user}
+              onChange={props.onUser}
+            />
+            {/* <button className={styles.searchbutton} onClick={submitHandler}>
+              <i
+                className={`fa-solid fa-magnifying-glass ${styles.searchbutton}`}
+              ></i>
+            </button> */}
+          </form>
+        </div>
+      </div>
+
+      {githubData.map((item, key) => (
+        <Link to={item.login}>
+          <div className={styles.users} key={key}>
+            <img
+              className={styles.img}
+              src={item.avatar_url}
+              alt={item.login}
+            />
+            <h1 className={styles.username}>{item.login}</h1>
+          </div>
+        </Link>
+      ))}
+    </>
+  );
+};
+
+export default Header;

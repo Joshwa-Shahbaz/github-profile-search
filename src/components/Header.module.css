@@ -1,0 +1,41 @@
+.gitlogo {
+  display: inline-block;
+  font-size: 29px;
+  margin-right: 10px;
+}
+.logo {
+  display: inline-block;
+  font-size: 29px;
+}
+.logo:hover {
+  color: #68b984;
+}
+.headerpara {
+  font-size: 18px;
+  color: black;
+  font-weight: 300px;
+  position: absolute;
+  top: 40px;
+}
+.headerpara a {
+  margin-left: 3px;
+  text-decoration: none;
+  color: green;
+}
+.search {
+  font-size: 18px;
+  padding: 8px;
+  width: 350px;
+  margin-top: 25px;
+}
+.main {
+  display: flex;
+  justify-content: space-around;
+  height: 95px;
+  border-bottom: 2px solid grey;
+}
+.searchbutton {
+  padding: 4px;
+  font-size: 20px;
+}
+

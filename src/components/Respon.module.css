@@ -1,0 +1,9 @@
+.icon {
+  display: flex;
+  gap: 20px;
+}
+.break {
+  width: 400px;
+  word-wrap: break-word;
+  font-size: 23px;
+}

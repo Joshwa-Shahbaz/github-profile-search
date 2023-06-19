@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  margin: 5px auto;
+  justify-content: center;
+  grid-gap: 170px;
+}
+.users {
+  display: flex;
+  padding: 20px;
+  margin: 50px 0 10px 30px;
+}
+.img {
+  max-width: 150px;
+}
+.username {
+  margin-left: 10px;
+}
+.check {
+  text-decoration: none;
+}
