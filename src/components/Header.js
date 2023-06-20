@@ -14,7 +14,6 @@ const Header = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     setInput("");
   };
 

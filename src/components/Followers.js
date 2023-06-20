@@ -8,21 +8,23 @@ const Followers = () => {
   const params = useParams();
   const user = params.userId;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.github.com/users/${user}/followers`
-        );
-        setfollowers(response.data);
-        console.log(followers);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `https://api.github.com/users/${user}/followers`
+      );
+      setfollowers(response.data);
+      console.log(followers);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  useEffect(() => {
     if (user) {
       fetchData();
+    } else {
+      return null;
     }
   }, [user]);
   return (
