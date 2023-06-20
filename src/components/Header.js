@@ -1,19 +1,20 @@
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [input, setInput] = useState("");
   const [updated, setUpdated] = useState("");
-
-  useEffect(() => {
-    setSearchParams({ name: updated });
-  }, [updated]);
+  const navigate = useNavigate();
 
   const submitHandler = (event) => {
     event.preventDefault();
+    if (updated) {
+      navigate(`/?name=${updated}`);
+    } else {
+      return null;
+    }
     setInput("");
   };
 
