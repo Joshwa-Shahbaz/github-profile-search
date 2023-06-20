@@ -4,7 +4,7 @@ import axios from "axios";
 import styles from "./Followers.module.css";
 
 const Followers = () => {
-  const [followers, setfollowers] = useState([]);
+  const [followers, setFollowers] = useState([]);
   const params = useParams();
   const user = params.userId;
 
@@ -14,8 +14,7 @@ const Followers = () => {
         const response = await axios.get(
           `https://api.github.com/users/${user}/followers`
         );
-        setfollowers(response.data);
-        console.log(followers);
+        setFollowers(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -27,7 +26,7 @@ const Followers = () => {
     //   return null;
     // }
     fetchData();
-  });
+  }, [user]);
 
   return (
     <>
