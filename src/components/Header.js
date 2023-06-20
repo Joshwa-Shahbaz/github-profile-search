@@ -1,5 +1,3 @@
-// import React, { useContext } from "react";
-// import CardContext from "../store/context";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -9,11 +7,6 @@ const Header = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [input, setInput] = useState("");
   const [updated, setUpdated] = useState("");
-  // const { user, userHandler } = useContext(CardContext);
-
-  // const nameHandler = (e) => {
-  //   userHandler(e.target.value);
-  // };
 
   useEffect(() => {
     setSearchParams({ name: updated });

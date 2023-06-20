@@ -22,7 +22,7 @@ const Respon = () => {
     if (user) {
       fetchData();
     }
-  }, []);
+  }, [user]);
   return (
     <>
       <h1>Repositories</h1>

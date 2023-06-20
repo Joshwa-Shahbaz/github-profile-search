@@ -24,7 +24,7 @@ const Followers = () => {
     if (user) {
       fetchData();
     }
-  }, []);
+  }, [user]);
   return (
     <>
       <h1>Followers</h1>
