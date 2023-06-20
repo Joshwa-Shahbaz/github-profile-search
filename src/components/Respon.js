@@ -19,9 +19,10 @@ const Respon = () => {
         console.log(error);
       }
     };
-
-    fetchData();
-  });
+    if (user) {
+      fetchData();
+    }
+  }, []);
   return (
     <>
       <h1>Repositories</h1>
@@ -33,11 +34,11 @@ const Respon = () => {
             <p>{item.pushed_at}</p>
             <div className={styles.icon}>
               <p>
-                <i class="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
                 {item.watchers_count}
               </p>
               <p>
-                <i class="fa-solid fa-code-branch"></i>
+                <i className="fa-solid fa-code-branch"></i>
                 {item.forks_count}
               </p>
             </div>

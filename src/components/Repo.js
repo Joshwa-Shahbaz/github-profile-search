@@ -23,7 +23,9 @@ const Repo = () => {
       }
     };
 
-    fetchData();
+    if (user) {
+      fetchData();
+    }
   });
 
   return (

@@ -34,8 +34,16 @@
   height: 95px;
   border-bottom: 2px solid grey;
 }
+
 .searchbutton {
   padding: 4px;
   font-size: 20px;
 }
-
+.link {
+  color: #000;
+}
+.serachIon {
+  position: relative;
+  top: 4px;
+  font-size: 29px;
+}

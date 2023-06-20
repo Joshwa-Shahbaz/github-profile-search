@@ -21,20 +21,24 @@ const Followers = () => {
       }
     };
 
-    fetchData();
-  });
+    if (user) {
+      fetchData();
+    }
+  }, []);
   return (
     <>
       <h1>Followers</h1>
       {followers.map((item) => (
-        <div className={styles.flex}>
-          <div>
-            <img className={styles.img} src={item.avatar_url} alt="" />
+        <>
+          <div className={styles.flex}>
+            <div>
+              <img className={styles.img} src={item.avatar_url} alt="" />
+            </div>
+            <div>
+              <h1>{item.login}</h1>
+            </div>
           </div>
-          <div>
-            <h1>{item.login}</h1>
-          </div>
-        </div>
+        </>
       ))}
     </>
   );

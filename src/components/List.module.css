@@ -19,3 +19,7 @@
 .check {
   text-decoration: none;
 }
+.message {
+  display: flex;
+  justify-content: center;
+}
