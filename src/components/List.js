@@ -38,7 +38,7 @@ const List = () => {
     );
   }
 
-  if (githubData.length === 0) {
+  if (githubData.length === 0 || searchParams === null) {
     return (
       <div className={styles.message}>
         <h1>no result found !</h1>
