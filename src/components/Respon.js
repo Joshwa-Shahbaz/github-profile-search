@@ -19,6 +19,7 @@ const Respon = () => {
         console.log(error);
       }
     };
+
     if (user) {
       fetchData();
     }
@@ -47,4 +48,5 @@ const Respon = () => {
     </>
   );
 };
+
 export default Respon;

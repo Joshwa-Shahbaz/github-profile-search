@@ -8,6 +8,7 @@ import Followers from "./Followers";
 
 const Repo = () => {
   const [profile, setProfile] = useState([]);
+  const [error, setError] = useState(null);
   const params = useParams();
   const user = params.userId;
 
@@ -19,7 +20,7 @@ const Repo = () => {
         );
         setProfile(response.data);
       } catch (error) {
-        console.log(error);
+        setError("API limit rate exceeded. Please try again later.");
       }
     };
 
@@ -27,6 +28,14 @@ const Repo = () => {
       fetchData();
     }
   });
+
+  if (error) {
+    return (
+      <div>
+        <p className={styles.error}>Error: {error}</p>
+      </div>
+    );
+  }
 
   return (
     <>
