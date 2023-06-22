@@ -29,11 +29,11 @@ const Header = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if (input) {
-      setSearchParams({ name: input });
-    } else {
-      setSearchParams({});
-    }
+    // if (input) {
+    //   setSearchParams({ name: input });
+    // } else {
+    //   setSearchParams({});
+    // }
   };
 
   return (
