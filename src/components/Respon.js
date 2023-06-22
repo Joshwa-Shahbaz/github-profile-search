@@ -23,28 +23,28 @@ const Respon = () => {
       fetchData();
     }
   }, [user]);
+
   return (
     <>
       <h1>Repositories</h1>
-      {repo.map((item) => {
-        return (
-          <>
-            <h1>{item.name}</h1>
-            <p className={styles.break}>{item.description}</p>
-            <p>{item.pushed_at}</p>
-            <div className={styles.icon}>
-              <p>
-                <i className="fa-solid fa-star"></i>
-                {item.watchers_count}
-              </p>
-              <p>
-                <i className="fa-solid fa-code-branch"></i>
-                {item.forks_count}
-              </p>
-            </div>
-          </>
-        );
-      })}
+      {repo.map((item) => (
+        <div key={item.id}>
+          <h1>{item.name}</h1>
+          <p className={styles.break}>{item.description}</p>
+          <p>{item.pushed_at}</p>
+          <div className={styles.icon}>
+            <p>
+              <i className="fa-solid fa-star"></i>
+              {item.watchers_count}
+            </p>
+            <p>
+              <i className="fa-solid fa-code-branch"></i>
+              {item.forks_count}
+            </p>
+          </div>
+        </div>
+      ))}
+      ;
     </>
   );
 };

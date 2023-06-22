@@ -15,16 +15,12 @@ const Followers = () => {
           `https://api.github.com/users/${user}/followers`
         );
         setFollowers(response.data);
+        console.log(response);
       } catch (error) {
-        console.log(error);
+        console.log("error", error.response.data.message);
       }
     };
 
-    // if (user) {
-    //   fetchData();
-    // } else {
-    //   return null;
-    // }
     fetchData();
   }, [user]);
 
@@ -32,16 +28,14 @@ const Followers = () => {
     <>
       <h1>Followers</h1>
       {followers.map((item) => (
-        <>
-          <div className={styles.flex}>
-            <div>
-              <img className={styles.img} src={item.avatar_url} alt="" />
-            </div>
-            <div>
-              <h1>{item.login}</h1>
-            </div>
+        <div className={styles.flex} key={item.id}>
+          <div>
+            <img className={styles.img} src={item.avatar_url} alt="" />
           </div>
-        </>
+          <div>
+            <h1>{item.login}</h1>
+          </div>
+        </div>
       ))}
     </>
   );

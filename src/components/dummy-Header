@@ -1,39 +1,27 @@
 import styles from "./Header.module.css";
 import { Link, useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [input, setInput] = useState("");
+  const [updated, setUpdated] = useState("");
+  // const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    const nameParam = searchParams.get("name");
-    if (nameParam) {
-      setInput(nameParam);
-    }
-  }, [searchParams]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (input) {
-        setSearchParams({ name: input });
-      } else {
-        setSearchParams({});
-      }
-    }, 500);
-
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [input, setSearchParams]);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    if (input) {
-      setSearchParams({ name: input });
+    if (updated) {
+      setSearchParams({ name: updated });
+      // navigate(`/?name=${updated}`);
     } else {
-      setSearchParams({});
+      return null;
     }
+    setInput("");
+  };
+
+  const stateHandler = () => {
+    setUpdated(input);
   };
 
   return (
@@ -57,9 +45,12 @@ const Header = () => {
               className={styles.search}
               type="text"
               placeholder="Search for a user, e.g., joshwa-shahbaz"
-              value={input}
+              value={searchParams.name}
               onChange={(e) => setInput(e.target.value)}
             />
+            <button className={styles.serachIon} onClick={stateHandler}>
+              <i className="fa-solid fa-magnifying-glass "></i>
+            </button>
           </form>
         </div>
       </div>
