@@ -44,7 +44,6 @@ const Respon = () => {
           </div>
         </div>
       ))}
-      ;
     </>
   );
 };
